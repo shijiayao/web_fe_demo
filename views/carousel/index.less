@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+:root {
+    --bg: linear-gradient(200deg, pink, #918ef9);
+}
+
+.carousel-wrap {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    .carousel-list {
+        width: 100%;
+        height: 100%;
+        background: var(--bg);
+
+        --small-image-width: 214px;
+        --small-image-height: 120px;
+
+        .carousel-item {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: var(--small-image-width);
+            height: var(--small-image-height);
+            background-size: cover;
+            background-position: center center;
+            transition: all 1s;
+
+            img {
+                display: block;
+                width: 100%;
+            }
+
+            &:nth-of-type(1),
+            &:nth-of-type(2) {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transform: translateY(0);
+            }
+
+            &:nth-of-type(3) {
+                left: calc(100% - var(--small-image-width) * 2 - 10px);
+            }
+
+            &:nth-of-type(4) {
+                left: calc(100% - var(--small-image-width));
+            }
+
+            &:nth-of-type(5) {
+                left: calc(100% + 10px);
+            }
+
+            &:nth-of-type(n + 6) {
+                left: calc(100% + var(--small-image-width) + 2 * 10px);
+            }
+
+            &.active {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .carousel-button {
+        position: absolute;
+        bottom: 150px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+
+        --carousel-button-arrow-width: 15px;
+        --carousel-button-arrow-color: #f0f0f0;
+
+        .arrow-button {
+            position: absolute;
+            top: 0;
+            width: 60px;
+            font-size: 24px;
+            line-height: 30px;
+            color: #fff;
+            text-align: center;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            background: var(--bg);
+            cursor: pointer;
+            user-select: none;
+            opacity: 0.6;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-top: var(--carousel-button-arrow-width) solid transparent;
+                border-bottom: var(--carousel-button-arrow-width) solid transparent;
+            }
+        }
+
+        .arrow-left {
+            left: 0;
+            padding-left: 20px;
+
+            &::before {
+                left: 0;
+                border-left: none;
+                border-right: var(--carousel-button-arrow-width) solid var(--carousel-button-arrow-color);
+            }
+        }
+
+        .arrow-right {
+            right: 0;
+            padding-right: 20px;
+
+            &::before {
+                right: 0;
+                border-left: var(--carousel-button-arrow-width) solid var(--carousel-button-arrow-color);
+                border-right: none;
+            }
+        }
+    }
+}

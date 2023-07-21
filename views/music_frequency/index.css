@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#music_canvas {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.music-box {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0;
+}
