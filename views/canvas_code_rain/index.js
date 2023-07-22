@@ -58,7 +58,7 @@ function getRandomColor () {
 
 // 随机字符
 function getRandomChar () {
-    const charString = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+<>?';
+    const charString = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*+-/=';
 
     return charString[Math.floor(Math.random() * charString.length)];
 }
